@@ -7,59 +7,70 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
+    // 🟢 PÚBLICO: Detalle del proyecto
     public function show(Project $project)
     {
-        //
+        return view('projects.show', compact('project'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // 🔐 ADMIN: CRUD completo
+    public function index()
+    {
+        $projects = Project::latest()->paginate(10);
+        return view('admin.projects.index', compact('projects'));
+    }
+
+    public function create()
+    {
+        return view('admin.projects.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|string|max:255',
+            'year' => 'nullable|string|max:4',
+            'is_active' => 'boolean',
+        ]);
+
+        $validated['is_active'] = $request->has('is_active');
+
+        Project::create($validated);
+
+        return redirect()->route('admin.projects.index')
+            ->with('success', '✅ Proyecto creado exitosamente.');
+    }
+
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Project $project)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|string|max:255',
+            'year' => 'nullable|string|max:4',
+            'is_active' => 'boolean',
+        ]);
+
+        $validated['is_active'] = $request->has('is_active');
+
+        $project->update($validated);
+
+        return redirect()->route('admin.projects.index')
+            ->with('success', '✅ Proyecto actualizado exitosamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index')
+            ->with('success', '✅ Proyecto eliminado exitosamente.');
     }
 }
