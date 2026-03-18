@@ -10,6 +10,8 @@
                 <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
             </div>
 
             <!-- Imágenes -->
@@ -17,27 +19,57 @@
                 <div class="carousel-item active">
                     <img src="{{ asset('images/img1.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-2">Somos<span class="text-yellow-400">Fema</span></h1>
-                        <p class="text-xl">Tu mejor</p>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-2">FEMA<span class="text-yellow-400"> INGENIEROS</span></h1>
+                        <p class="text-xl">es una empresa
+consultora especializada en el desarrollo
+integral de proyectos de infraestructura
+vial, orientada a brindar soluciones
+técnicas eficientes, sostenibles y
+alineadas a la normativa vigente.</p>
                     </div>
                 </div>
                 
                 <div class="carousel-item">
                     <img src="{{ asset('images/img2.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 2">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-2">Proyectos Profesionales</h1>
-                        <p class="text-xl">Especialista</p>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-2">NUESTRO DIFERENCIAL</h1>
+                        <p class="text-xl">Integramos ingeniería multidisciplinaria,
+gestión técnica y metodología BIM para
+garantizar precisión en el diseño, control
+de interferencias, optimización de costos
+y reducción de riesgos durante la
+ejecución de obra.</p>
                     </div>
                 </div>
                 
                 <div class="carousel-item">
                     <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 3">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-2">Transformamos Ideas en Realidad</h1>
-                        <p class="text-xl">proyectos</p>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-2">MISIÓN</h1>
+                        <p class="text-xl">Ofrecer soluciones de ingeniería con
+tecnología avanzada, garantizando
+eficiencia, precisión y confianza en cada
+proyecto.</p>
                     </div>
                 </div>
+
+                                
+                <div class="carousel-item">
+                    <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 3">
+                    <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-2">VISIÓN</h1>
+                        <p class="text-xl">Ser una empresa referente en ingeniería e
+innovación, impulsando la investigación
+científica; generando así un impacto
+positivo en las metodologías para el
+estudio y ejecución de proyectos
+caracterizándose en el desarrollo
+sostenible de recursos.</p>
+                    </div>
+                </div>
+                
             </div>
+            
 
             <!-- Controles -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselFemas" data-bs-slide="prev">
