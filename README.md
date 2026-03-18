@@ -30,11 +30,10 @@ php artisan serve # Terminal 2
 
 🔹 MODELO (Datos)
    │
-   ├── 🟢 NIVEL 1: Estructura base ✅ (DONDE ESTAMOS)
+   ├── 🟢 NIVEL 1: Estructura base ✅ 
    │   ├── Tabla `projects` creada (migración)
    │   ├── Modelo `Project.php` con $fillable
    │   ├── CRUD básico (store, update, delete)
-   │   └── Datos de prueba en tinker
    │
    ├── 🟡 NIVEL 2: Lógica de negocio ⏳
    │   ├── Scopes: Project::active(), byCategory()
@@ -68,3 +67,9 @@ php artisan make:controller Auth/LoginController
 mkdir -p resources/views/auth
 
 # 3. Listo, el resto es copiar y pegar
+
+para la nav bar
+
+inicio nosotros servicios contacto
+
+numero email

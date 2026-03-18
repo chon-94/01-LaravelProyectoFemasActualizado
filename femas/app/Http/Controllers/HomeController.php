@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         $projects = Project::where('is_active', true)
                           ->latest()
-                          ->take(6)
+                          ->take(10)
                           ->get();
 
         return view('home', compact('projects'));

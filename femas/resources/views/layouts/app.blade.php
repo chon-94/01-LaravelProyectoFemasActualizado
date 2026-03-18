@@ -12,54 +12,59 @@
     <!-- Vite (Tailwind) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-<!-- NAV BAR -->
-<nav class="fixed top-0 left-0 right-0 z-50 w-11/12 mx-auto mt-4 bg-yellow-100/95 backdrop-blur-sm rounded-full text-sm py-3 border-2 border-black hover:bg-orange-200 transition shadow-lg">
-    <div class="container mx-auto flex flex-wrap items-center">
+    <!-- NAV BAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 w-11/12 mx-auto mt-4 bg-orange-200/95 backdrop-blur-sm rounded-full text-sm py-3 border-2 border-black  transition shadow-lg">
+        <div class="container mx-auto flex flex-wrap items-center">
 
-        <!-- NOMBRE Y LOGO -->
-        <div class="flex w-full md:w-1/2 justify-center md:justify-start font-extrabold">
-            <a href="{{ route('home') }}" class="text-dark text-xl hover:text-orange-600 transition">
-                Femas<span class="text-orange-400">.dev</span>
-            </a>
+            <!-- NOMBRE Y LOGO -->
+    <a href="{{ route('home') }}" >
+        <img src="{{ asset('images/fema.jpeg') }}" class="h-12 w-auto">
+    </a>
+            <!-- NOMBRE Y LOGO -->
+
+            <!-- OPCIONES PRINCIPALES -->
+            <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+                <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+
+
+                    <!-- inicio -->
+                    <li class="mr-3">
+                        <a href="{{ route('home') }}" class="px-4 py-2 text-dark hover:bg-orange-300 hover:text-white rounded-full transition">
+                            inicio
+                        </a>
+                    </li>
+
+                    <!-- Proyectos -->
+                    <li class="mr-3">
+                        <a href="{{ route('home') }}#proyectos" class="px-4 py-2 text-dark hover:bg-orange-300 hover:text-white rounded-full transition">
+                            Proyectos
+                        </a>
+                    </li>
+
+                    <!-- Contacto -->
+                    <li class="mr-3">
+                        <a href="{{ route('home') }}#contacto" class="px-4 py-2 text-dark hover:bg-orange-300 hover:text-white rounded-full transition">
+                            Contactame
+                        </a>
+                    </li>
+
+                    <!-- about -->
+                    <!-- <li class="mr-3">
+                        <a href="{{ route('about') }}" class="px-4 py-2 bg-orange-300 text-dark rounded-full hover:bg-orange-500 transition shadow">  
+                            about
+                        </a>
+                    </li>-->
+
+                </ul>
+            </div>
+
         </div>
-        <!-- NOMBRE Y LOGO -->
-
-        <!-- OPCIONES PRINCIPALES -->
-        <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
-            <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-
-                <!-- Proyectos -->
-                <li class="mr-3">
-                    <a href="{{ route('home') }}#proyectos" class="px-4 py-2 text-dark hover:bg-orange-400 hover:text-white rounded-full transition">
-                        Proyectos
-                    </a>
-                </li>
-
-                <!-- Contacto -->
-                <li class="mr-3">
-                    <a href="{{ route('home') }}#contacto" class="px-4 py-2 text-dark hover:bg-orange-400 hover:text-white rounded-full transition">
-                        Contactame
-                    </a>
-                </li>
-
-                <!-- about -->
-                <li class="mr-3">
-                    <a href="{{ route('about') }}" class="px-4 py-2 bg-orange-300 text-dark rounded-full hover:bg-orange-500 transition shadow">  
-                        about
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-
-    </div>
-</nav>
-<!-- FIN NAV BAR -->
+    </nav>
+    <!-- FIN NAV BAR -->
 
     <!-- Contenido Principal -->
-    <main class="pt-20 bg-yellow-600">
+    <main class="pt-20 bg-yellow-100">
         @yield('content')
     </main>
 
@@ -83,5 +88,4 @@
         }
     });
 </script>
-</body>
 </html>

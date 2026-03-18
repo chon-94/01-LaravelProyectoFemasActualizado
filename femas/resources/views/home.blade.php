@@ -15,15 +15,15 @@
             <!-- Imágenes -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ asset('images/construccion3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 1">
+                    <img src="{{ asset('images/img1.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-2">Somos<span class="text-yellow-400">Femas</span></h1>
-                        <p class="text-xl">constructora</p>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-2">Somos<span class="text-yellow-400">Fema</span></h1>
+                        <p class="text-xl">Tu mejor</p>
                     </div>
                 </div>
                 
                 <div class="carousel-item">
-                    <img src="{{ asset('images/construccion2.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 2">
+                    <img src="{{ asset('images/img2.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 2">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">Proyectos Profesionales</h1>
                         <p class="text-xl">Especialista</p>
@@ -31,7 +31,7 @@
                 </div>
                 
                 <div class="carousel-item">
-                    <img src="{{ asset('images/construccion5.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 3">
+                    <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 3">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">Transformamos Ideas en Realidad</h1>
                         <p class="text-xl">proyectos</p>
@@ -53,10 +53,10 @@
         <!-- FIN CAROUSEL -->
 
 
-<!-- Sección de Proyectos -->
+<!-- Sección de Servicios -->
 <section id="proyectos" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4">
-        <h2 class="py-9 text-3xl font-bold text-center mb-12">Nuestros Proyectos</h2>
+        <h2 class="py-9 text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
         
         <div class="grid md:grid-cols-3 gap-8">
             @foreach($projects as $project)  <!-- ← $project es un Modelo ahora -->
