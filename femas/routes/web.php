@@ -14,6 +14,9 @@ Route::get('login', [LoginController::class, 'show'])->name('login');
 Route::post('login', [LoginController::class, 'authenticate']);
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+// Ruta para formulario de contacto
+Route::post('/contact', [HomeController::class, 'contact'])->name('contact.send');
+
 // Protegidas (solo admin)
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('projects', ProjectController::class);

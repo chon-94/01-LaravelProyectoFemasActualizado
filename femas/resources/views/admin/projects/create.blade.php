@@ -8,16 +8,21 @@
 </head>
 <body class="bg-gray-100">
 
+    <!-- Navbar Admin -->
     @include('admin.partials.navbar')
 
     <div class="container mx-auto px-4 py-8">
         <div class="max-w-3xl mx-auto bg-white rounded-lg shadow p-6">
             <h1 class="text-3xl font-bold mb-6 text-gray-800">➕ Nuevo Proyecto</h1>
             
-            <form action="{{ route('admin.projects.store') }}" method="POST">
+            <!-- ⚠️ IMPORTANTE: enctype="multipart/form-data" para subir archivos -->
+            <form action="{{ route('admin.projects.store') }}" 
+                  method="POST" 
+                  enctype="multipart/form-data">
                 @csrf
 
                 <div class="space-y-4">
+                    
                     <!-- Título -->
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">Título *</label>
@@ -40,13 +45,16 @@
                         @enderror
                     </div>
 
-                    <!-- Imagen y Año -->
+                    <!-- Imagen (FILE UPLOAD) y Año -->
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-gray-700 font-medium mb-2">Imagen (nombre de archivo)</label>
-                            <input type="text" name="image" value="{{ old('image') }}" 
-                                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" 
-                                   placeholder="ej: proyecto1.jpg">
+                            <label class="block text-gray-700 font-medium mb-2">Imagen *</label>
+                            <!-- ⚠️ type="file" + accept para imágenes -->
+                            <input type="file" name="image" accept="image/*" 
+                                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            @error('image')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Año</label>

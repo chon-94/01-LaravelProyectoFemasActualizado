@@ -14,7 +14,7 @@
 </head>
 
     <!-- NAV BAR -->
-    <nav class="fixed top-0 left-0 right-0 z-50 w-11/12 mx-auto mt-4 bg-orange-200/95 backdrop-blur-sm rounded-full text-sm py-3 border-2 border-black  transition shadow-lg">
+    <nav class="fixed top-0 left-0 right-0 z-50 w-11/12 mx-auto mt-4 bg-orange-200/50 backdrop-blur-sm rounded-full text-sm py-3 border-2 border-black  transition shadow-lg">
         <div class="container mx-auto flex flex-wrap items-center">
 
             <!-- NOMBRE Y LOGO -->

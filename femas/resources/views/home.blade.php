@@ -86,20 +86,24 @@ sostenible de recursos.</p>
 
 
 <!-- Sección de Servicios -->
+
+
+<!-- Sección de Servicios -->
 <section id="proyectos" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4">
         <h2 class="py-9 text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
         
         <div class="grid md:grid-cols-3 gap-8">
-            @foreach($projects as $project)  <!-- ← $project es un Modelo ahora -->
-                <div class="bg-yellow-100 p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
+            @foreach($projects as $project)
+                <!-- AGREGA: overflow-hidden y hover:shadow-lg -->
+                <div class="bg-yellow-100 p-6 rounded-xl shadow-sm hover:shadow-lg transition border border-gray-100 overflow-hidden group">
                     
                     <!-- Imagen del proyecto -->
                     <div class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                         @if($project->image)
                             <img src="{{ asset('images/projects/' . $project->image) }}" 
                                  alt="{{ $project->title }}" 
-                                 class="w-full h-full object-cover">
+                                 class="w-full h-full object-cover transition transform hover:scale-110 duration-300">
                         @else
                             <span class="text-4xl font-bold text-gray-400">
                                 {{ strtoupper(substr($project->title, 0, 2)) }}
@@ -122,18 +126,93 @@ sostenible de recursos.</p>
             @endforeach
         </div>
     </div>
-</section>        
+</section>
+
+
+
 <!-- Sección de Proyectos -->
 
+
+
 <!-- Sección de Contacto -->
-<section id="contacto" class="py-65 bg-gray-900 text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-8">¿Trabajamos juntos?</h2>
-        <p class="text-gray-400 mb-8">Estoy disponible para nuevos proyectos. Envíame un correo y hablemos.</p>
-        <a href="mailto:contacto@femas.dev" class="inline-block px-8 py-4 bg-yellow-100 rounded-full font-bold text-lg hover:bg-yellow-200 transition">
-            Enviar Correo
-        </a>
+<section id="contacto" class="py-20 bg-orange-200-75 text-orange-900">
+    <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center">¿Trabajamos juntos?</h2>
+        <p class="text-gray-400 mb-8 text-center">Estoy disponible para nuevos proyectos. Envíame un mensaje y hablemos.</p>
+        
+        <!-- Mensaje de éxito -->
+        @if(session('success'))
+            <div class="mb-6 p-4 bg-green-600 text-white rounded-lg text-center">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <!-- Formulario -->
+        <form action="{{ route('contact.send') }}" method="POST" class="max-w-lg mx-auto space-y-4">
+            @csrf
+            
+            <!-- Nombre -->
+            <div>
+                <label class="block text-sm font-medium mb-2">Empresa *</label>
+                <input type="text" name="name" value="{{ old('name', 'Fema') }}" 
+                       class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white" 
+                       required>
+                @error('name')
+                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label class="block text-sm font-medium mb-2">Email *</label>
+                <input type="email" name="email" value="{{ old('email', 'fema@femaingenieros.com') }}" 
+                       class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white" 
+                       required>
+                @error('email')
+                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Asunto -->
+            <div>
+                <label class="block text-sm font-medium mb-2">Asunto *</label>
+                <input type="text" name="subject" value="{{ old('subject','Asunto') }}" 
+                       class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white" 
+                       required>
+                @error('subject')
+                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Mensaje -->
+            <div>
+                <label class="block text-sm font-medium mb-2">Mensaje *</label>
+                <textarea name="message" rows="5" 
+                          class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 text-white" 
+                          required>{{ old('message') }}</textarea>
+                @error('message')
+                    <span class="text-red-400 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Botón -->
+            <button type="submit" class="w-full px-8 py-4 bg-yellow-600 text-white rounded-full font-bold text-lg hover:bg-yellow-700 transition">
+                Enviar Mensaje
+            </button>
+        </form>
+
+        <!-- Opción alternativa: Email directo -->
+        <p class="text-center text-gray-500 mt-6 text-sm">
+            O escríbeme directo: 
+            <a href="mailto:contacto@femas.dev" class="text-yellow-400 hover:underline">fema@femaingenieros.com</a>
+        </p>
     </div>
 </section>
+
+
+
+
+<!-- Sección de Contacto -->
+
 
 @endsection

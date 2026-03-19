@@ -27,20 +27,51 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
+
+        // Debug
+        \Log::info('Request data:', $request->all());
+        \Log::info('Has file:', [$request->hasFile('image')]);
+        
+        if ($request->hasFile('image')) {
+            \Log::info('File info:', [
+                'name' => $request->file('image')->getClientOriginalName(),
+                'size' => $request->file('image')->getSize(),
+                'type' => $request->file('image')->getMimeType(),
+            ]);
+        }    
+
+
+
+
+        // Validación
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'nullable|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'year' => 'nullable|string|max:4',
             'is_active' => 'boolean',
         ]);
 
-        $validated['is_active'] = $request->has('is_active');
+        try {
+            // Subir imagen
+            if ($request->hasFile('image')) {
+                $imageName = time() . '_' . $request->image->getClientOriginalName();
+                $request->image->move(public_path('images/projects'), $imageName);
+                $validated['image'] = $imageName;
+            }
 
-        Project::create($validated);
+            $validated['is_active'] = $request->has('is_active');
 
-        return redirect()->route('admin.projects.index')
-            ->with('success', '✅ Proyecto creado exitosamente.');
+            Project::create($validated);
+
+            return redirect()->route('admin.projects.index')
+                ->with('success', '✅ Proyecto creado exitosamente.');
+                
+        } catch (\Exception $e) {
+            // Si hay error, muestra qué pasó
+            return back()->with('error', '❌ Error: ' . $e->getMessage())
+                        ->withInput();
+        }
     }
 
     public function edit(Project $project)
