@@ -2,30 +2,32 @@
 
 @section('content')
 
-        <!-- CAROUSEL BOOTSTRAP -->
-        <div id="carouselFemas" class=" carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <!-- CAROUSEL BOOTSTRAP -->
+        <div id="carouselFema" class=" carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
             
             <!-- Indicadores -->
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselFemas" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselFema" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselFema" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselFema" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselFema" data-bs-slide-to="3" aria-label="Slide 4"></button>
 
             </div>
 
             <!-- Imágenes -->
             <div class="carousel-inner">
+                
                 <div class="carousel-item active">
                     <img src="{{ asset('images/img1.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">FEMA<span class="text-yellow-400"> INGENIEROS</span></h1>
                         <p class="text-xl">es una empresa
-consultora especializada en el desarrollo
-integral de proyectos de infraestructura
-vial, orientada a brindar soluciones
-técnicas eficientes, sostenibles y
-alineadas a la normativa vigente.</p>
+                                            consultora especializada en el desarrollo
+                                            integral de proyectos de infraestructura
+                                            vial, orientada a brindar soluciones
+                                            técnicas eficientes, sostenibles y
+                                            alineadas a la normativa vigente.
+                        </p>
                     </div>
                 </div>
                 
@@ -34,11 +36,12 @@ alineadas a la normativa vigente.</p>
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">NUESTRO DIFERENCIAL</h1>
                         <p class="text-xl">Integramos ingeniería multidisciplinaria,
-gestión técnica y metodología BIM para
-garantizar precisión en el diseño, control
-de interferencias, optimización de costos
-y reducción de riesgos durante la
-ejecución de obra.</p>
+                                            gestión técnica y metodología BIM para
+                                            garantizar precisión en el diseño, control
+                                            de interferencias, optimización de costos
+                                            y reducción de riesgos durante la
+                                            ejecución de obra.
+                        </p>
                     </div>
                 </div>
                 
@@ -47,24 +50,26 @@ ejecución de obra.</p>
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">MISIÓN</h1>
                         <p class="text-xl">Ofrecer soluciones de ingeniería con
-tecnología avanzada, garantizando
-eficiencia, precisión y confianza en cada
-proyecto.</p>
+                                            tecnología avanzada, garantizando
+                                            eficiencia, precisión y confianza en cada
+                                            proyecto.
+                        </p>
                     </div>
                 </div>
 
                                 
                 <div class="carousel-item">
-                    <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 3">
+                    <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 4">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">VISIÓN</h1>
                         <p class="text-xl">Ser una empresa referente en ingeniería e
-innovación, impulsando la investigación
-científica; generando así un impacto
-positivo en las metodologías para el
-estudio y ejecución de proyectos
-caracterizándose en el desarrollo
-sostenible de recursos.</p>
+                                            innovación, impulsando la investigación
+                                            científica; generando así un impacto
+                                            positivo en las metodologías para el
+                                            estudio y ejecución de proyectos
+                                            caracterizándose en el desarrollo
+                                            sostenible de recursos.
+                        </p>
                     </div>
                 </div>
                 
@@ -72,17 +77,17 @@ sostenible de recursos.</p>
             
 
             <!-- Controles -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFemas" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFema" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
             </button>
 
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselFemas" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselFema" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
-        <!-- FIN CAROUSEL -->
+    <!-- FIN CAROUSEL -->
 
 
 <!-- Sección de Servicios -->
@@ -122,6 +127,7 @@ sostenible de recursos.</p>
                     
                     <!-- Link -->
                     <a href="#" class="text-yellow-600 font-semibold hover:underline">Ver más &rarr;</a>
+                    
                 </div>
             @endforeach
         </div>
@@ -199,13 +205,15 @@ sostenible de recursos.</p>
             <button type="submit" class="w-full px-8 py-4 bg-yellow-600 text-white rounded-full font-bold text-lg hover:bg-yellow-700 transition">
                 Enviar Mensaje
             </button>
+
         </form>
 
-        <!-- Opción alternativa: Email directo -->
+        <!-- Opción alternativa: Email directo con el gmail del usuario -->
         <p class="text-center text-gray-500 mt-6 text-sm">
             O escríbeme directo: 
             <a href="mailto:contacto@femas.dev" class="text-yellow-400 hover:underline">fema@femaingenieros.com</a>
         </p>
+
     </div>
 </section>
 
