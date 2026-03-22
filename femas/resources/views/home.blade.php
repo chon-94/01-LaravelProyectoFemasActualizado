@@ -17,7 +17,7 @@
             <!-- Imágenes -->
             <div class="carousel-inner">
                 
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-slide-name="home">>
                     <img src="{{ asset('images/img1.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">FEMA<span class="text-yellow-400"> INGENIEROS</span></h1>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 
-                <div class="carousel-item">
+                <div class="carousel-item" data-slide-name="diferencial">
                     <img src="{{ asset('images/img2.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 2">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">NUESTRO DIFERENCIAL</h1>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 
-                <div class="carousel-item">
+                <div class="carousel-item" data-slide-name="mision">>
                     <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 3">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">MISIÓN</h1>
@@ -58,8 +58,8 @@
                 </div>
 
                                 
-                <div class="carousel-item">
-                    <img src="{{ asset('images/img3.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 4">
+                <div class="carousel-item" data-slide-name="vision">
+                    <img src="{{ asset('images/img4.jpg') }}" class="d-block w-100" style="height: 100vh; object-fit: cover;" alt="Slide 4">
                     <div class="carousel-caption d-none d-md-block bg-black bg-opacity-50 rounded p-4">
                         <h1 class="text-4xl md:text-6xl font-bold mb-2">VISIÓN</h1>
                         <p class="text-xl">Ser una empresa referente en ingeniería e
@@ -222,5 +222,51 @@
 
 <!-- Sección de Contacto -->
 
-
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar carousel de Bootstrap
+    const carouselEl = document.getElementById('carouselFema');
+    const carousel = bootstrap.Carousel.getOrCreateInstance(carouselEl);
+    
+    // Links del navbar que controlan el carousel
+    const carouselLinks = document.querySelectorAll('.nav-carousel-link');
+    
+    carouselLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Obtener el nombre del slide objetivo
+            const targetSlide = this.getAttribute('data-slide-target');
+            
+            // Buscar el índice del slide con ese data-slide-name
+            const slides = carouselEl.querySelectorAll('.carousel-item');
+            slides.forEach((slide, index) => {
+                if (slide.getAttribute('data-slide-name') === targetSlide) {
+                    carousel.to(index); // Ir a ese slide
+                }
+            });
+            
+            // Si estamos en otra página, primero ir a home y luego cambiar slide
+            if (window.location.pathname !== '/') {
+                window.location.href = '/#' + targetSlide;
+            }
+        });
+    });
+    
+    // Si la URL tiene un hash (#mision, #vision, etc.), ir a ese slide al cargar
+    if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        const slides = carouselEl.querySelectorAll('.carousel-item');
+        
+        slides.forEach((slide, index) => {
+            if (slide.getAttribute('data-slide-name') === hash) {
+                // Pequeño delay para asegurar que el carousel está listo
+                setTimeout(() => carousel.to(index), 300);
+            }
+        });
+    }
+});
+</script>
+@endpush
 @endsection
