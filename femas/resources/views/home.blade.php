@@ -125,10 +125,7 @@
                     <!-- Descripción -->
                     <p class="text-gray-600 mb-4">{{ Str::limit($project->description, 100) }}</p>
                     
-                    <!-- Link -->
-                    <a href="#" class="text-yellow-600 font-semibold hover:underline">Ver más &rarr;</a>
-                    
-                </div>
+                    </div>
             @endforeach
         </div>
     </div>
