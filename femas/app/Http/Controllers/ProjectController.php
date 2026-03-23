@@ -40,9 +40,6 @@ class ProjectController extends Controller
             ]);
         }    
 
-
-
-
         // Validación
         $validated = $request->validate([
             'title' => 'required|string|max:255',
